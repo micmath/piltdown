@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+</head>
+<body>
+    <h1>blog</h1>
+    <main>
+      <div class="code-block" data-js><pre><code class="hljs language-js"><span class="code-line numbered-code-line" data-line-number="1"><span class="hljs-keyword">function</span> <span class="hljs-title function_">foo</span>(<span class="hljs-params">bar</span>) {</span>
+<span class="code-line numbered-code-line" data-line-number="2">  <span class="hljs-keyword">return</span> <span class="hljs-string">"foobar"</span>;</span>
+<span class="code-line numbered-code-line" data-line-number="3">}</span>
+</code></pre></div>
+<h1>The Blog</h1>
+<p>This is <del>our</del> <em>your</em> blog.</p>
+<div class="code-block"><pre><code><span class="code-line numbered-code-line" data-line-number="1"># Not a heading</span>
+</code></pre></div>
+<h2 id="sample-code"><a class="heading-permalink" href="#sample-code">Sample code</a></h2>
+<h3 id="fenced-code-example"><a class="heading-permalink" href="#fenced-code-example">Fenced code example</a></h3>
+<div class="code-block" data-js><pre><code class="hljs language-js"><span class="code-line numbered-code-line" data-line-number="1"><span class="hljs-keyword">let</span> genericFencedCode = <span class="hljs-keyword">function</span>(<span class="hljs-params">bar</span>) {</span>
+<span class="code-line numbered-code-line" data-line-number="2">  <span class="hljs-title function_">bloop</span>();</span>
+<span class="code-line numbered-code-line" data-line-number="3">}</span>
+</code></pre></div>
+<h4 id="another-heading"><a class="heading-permalink" href="#another-heading">Another heading</a></h4>
+<p>Some text.</p>
+<h2 id="inserted-code"><a class="heading-permalink" href="#inserted-code">✅ Inserted code</a></h2>
+<div class="code-block" data-javascript><pre><code class="hljs language-javascript"><span class="code-line numbered-code-line" data-line-number="1"><span class="hljs-keyword">var</span> included= <span class="hljs-literal">true</span>;</span>
+</code></pre></div>
+<div class="code-block" data-css><pre><code class="hljs language-css"><span class="code-line numbered-code-line" data-line-number="1"><span class="hljs-selector-pseudo">:root</span> {</span>
+<span class="code-line numbered-code-line" data-line-number="2">  <span class="hljs-attr">--test</span>: <span class="hljs-number">#fff</span>;</span>
+<span class="code-line numbered-code-line" data-line-number="3">}</span>
+<span class="code-line numbered-code-line" data-line-number="4"></span>
+<span class="code-line numbered-code-line" data-line-number="5"><span class="hljs-selector-tag">code</span> {</span>
+<span class="code-line numbered-code-line" data-line-number="6">  <span class="hljs-attribute">background-color</span>: <span class="hljs-built_in">var</span>(--test);</span>
+<span class="code-line numbered-code-line" data-line-number="7">}</span>
+</code></pre></div>
+<h2 id="inserted-code-again-wtf"><a class="heading-permalink" href="#inserted-code-again-wtf">Inserted code <strong>again</strong>, - WTF?</a></h2>
+<div class="code-block" data-js><pre><code class="hljs language-js"><span class="code-line numbered-code-line" data-line-number="1"><span class="hljs-keyword">var</span> included= <span class="hljs-literal">true</span>;</span>
+</code></pre></div>
+<p>This is <span>some inline html</span> <mark>content.</mark> Text is for words.</p>
+<div class="demo">
+  <h3 id="demo"><a class="heading-permalink" href="#demo">Demo</a></h3>
+  
+<fieldset>
+  <label for="address">
+    *Address*<span class="required" aria-hidden="true">*</span>
+  </label>
+  <input id="address" type="text" required>
+</fieldset>
+  <div class="view-source">
+  
+&#x3C;fieldset>
+  &#x3C;label for="address">
+    *Address*&#x3C;span class="required" aria-hidden="true">*&#x3C;/span>
+  &#x3C;/label>
+  &#x3C;input id="address" type="text" required>
+&#x3C;/fieldset>
+  </div>
+</div>
+<p>Some more text is here.</p>
+<p>
+<fieldset>
+  <label for="address">
+    *Address*<span class="required" aria-hidden="true">*</span>
+  </label>
+  <input id="address" type="text" required>
+</fieldset></p>
+<h1>Its Broken</h1>
+<div>Can I be inline? <span><foo class=""></foo>
+What the...?
+<bar>pfft</bar> Let's see</span>.</div>
+<p>Finally, some final text.</p>
+    </main>
+</body>
+</html>

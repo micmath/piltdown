@@ -1,0 +1,24 @@
+<div class="demo" role="group" aria-label="Live demonstration: An HTML text input with a required attribute and aria-hidden star.">
+  
+<fieldset>
+  <label for="address">
+    *Address*<span class="required" aria-hidden="true">*</span>
+  </label>
+  <input id="address" type="text" required>
+</fieldset>
+</div>
+<div class="container" role="group" aria-label="Interactive demo: A responsive media object (image and text) without @media breakpoints" style="animation-play-state: paused;">
+  <div class="inner">
+    <slot></slot>
+  </div>
+</div>
+<h1>Newsletter</h1>
+<p>Sign up and keep in touch.</p>
+<div>
+  <!-- included content -->
+<form action="/sign-up" method="post">
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required>
+  <button type="submit">Subscribe</button>
+</form>
+</div>

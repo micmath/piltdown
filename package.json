@@ -1,0 +1,47 @@
+{
+  "name": "piltdown",
+  "version": "0.0.1",
+  "description": "A markdown-based SSG breakthrough that's too good to be true.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "depcheck": "npx depcheck",
+    "test": "npx jasmine --config=spec/support/jasmine.json spec/**/*.spec.js",
+    "watch:ts": "npx --package typescript tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sindresorhus/slugify": "^2.2.1",
+    "@types/unist": "^3.0.2",
+    "commander": "^12.1.0",
+    "fast-glob": "^3.3.2",
+    "front-matter": "^4.0.2",
+    "hast": "^1.0.0",
+    "hast-util-to-html": "^9.0.1",
+    "hast-util-to-string": "^3.0.0",
+    "hastscript": "^9.0.0",
+    "mdast": "^3.0.0",
+    "node-html-parser": "^6.1.13",
+    "npm": "^10.8.2",
+    "rehype-highlight": "^7.0.0",
+    "rehype-highlight-code-lines": "^1.0.4",
+    "rehype-raw": "^7.0.0",
+    "rehype-stringify": "^10.0.0",
+    "remark-directive": "^3.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.0",
+    "remark-stringify": "^11.0.0",
+    "smartypants": "^0.2.2",
+    "unified": "^11.0.5",
+    "unindent": "^2.0.0",
+    "unist-util-visit": "^5.0.0",
+    "ventojs": "^1.12.10",
+    "vfile": "^6.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "typescript": "^5.5.3"
+  }
+}
