@@ -3,9 +3,7 @@ const env = vento();
 env.cache.clear();
 const cwd = process.cwd();
 export default async function template(model, opts) {
-    console.log(opts.filters);
     env.filters = opts.filters;
-    console.log(env.filters);
     const pages = model.get('pages');
     const l = pages.length;
     for (let i = 0; i < l; i++) {

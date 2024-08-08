@@ -7,9 +7,7 @@ const env = vento();
 env.cache.clear();
 const cwd = process.cwd();
 export default async function template(model: Model, opts: Opts): Promise<void> {
-  console.log(opts.filters);
   env.filters = opts.filters;
-  console.log(env.filters);
   const pages: Array<Page> = model.get('pages');
   const l = pages.length;
 

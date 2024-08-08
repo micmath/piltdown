@@ -1,5 +1,15 @@
 # Piltdown
 
+## Install
+
+From GitHub:
+
+`npm install micmath/piltdown#main --save`
+
+From local:
+
+`npm i "file:../../piltdown"`
+
 ## Usage
 
 Run the converter from the command line:
