@@ -1,7 +1,7 @@
 {
   "name": "piltdown",
-  "version": "0.0.1",
-  "description": "A markdown-based SSG breakthrough that's too good to be true.",
+  "version": "0.0.2",
+  "description": "A markdown-based SSG that's too good to be true.",
   "type": "module",
   "main": "src/index.js",
   "scripts": {

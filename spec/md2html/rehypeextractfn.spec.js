@@ -66,7 +66,7 @@ Some text. [^my-note][^my-other-note] More text. [^my-note]
     const result = await process(input);
     //console.log(result.data.footnotes);
     expect(result.value).toBe(
-      `<p>Some text. <sup class="fn-ref"><a id="fn-ref-my-note" href="#fn-def-my-note" aria-label="Footnote 1." title="Footnote 1.">1</a></sup><sup class="fn-ref"><a id="fn-ref-my-other-note" href="#fn-def-my-other-note" aria-label="Footnote 2." title="Footnote 2.">2</a></sup> More text. <sup class="fn-ref"><a id="fn-ref-my-note" href="#fn-def-my-note" aria-label="Footnote 1." title="Footnote 1.">1</a></sup></p>\n`
+      `<p>Some text. <sup class="fn-ref"><a id="fn-ref-my-note" href="#fn-def-my-note" aria-label="Footnote 1." title="Footnote 1.">1</a></sup><sup class="fn-ref"><a id="fn-ref-my-other-note" href="#fn-def-my-other-note" aria-label="Footnote 2." title="Footnote 2.">2</a></sup> More text. <sup class="fn-ref"><a id="fn-ref-my-note--2" href="#fn-def-my-note" aria-label="Footnote 1." title="Footnote 1.">1</a></sup></p>\n`
     );
     expect(result.data.footnotes).toEqual([
       { key: 1, id: 'my-note', value: 'A note.' },

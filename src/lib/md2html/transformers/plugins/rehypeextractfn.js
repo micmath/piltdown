@@ -6,7 +6,15 @@ function rehypeExtractFn() {
     function transformer(tree, vfile) {
         let keyCounter = 0;
         const footnoteRefs = new Map();
+        const footnoteRefCount = new Map();
         const footnoteDefs = new Map();
+        function getFootnoteRefCounter(footnoteId) {
+            const count = footnoteRefCount.get(footnoteId);
+            if (count > 1) {
+                return `--${count}`;
+            }
+            return "";
+        }
         function processFnRefs(node) {
             if (node.tagName === "code") {
                 return node;
@@ -28,12 +36,18 @@ function rehypeExtractFn() {
                             keyCounter++;
                             footnoteRefs.set(footnoteId, keyCounter);
                         }
+                        if (!footnoteRefCount.has(footnoteId)) {
+                            footnoteRefCount.set(footnoteId, 1);
+                        }
+                        else {
+                            footnoteRefCount.set(footnoteId, footnoteRefCount.get(footnoteId) + 1);
+                        }
                         const footnoteNumber = footnoteRefs.get(footnoteId);
                         newChildren.push(h("sup", {
                             className: "fn-ref"
                         }, [
                             h("a", {
-                                id: `fn-ref-${footnoteId}`,
+                                id: `fn-ref-${footnoteId}` + getFootnoteRefCounter(footnoteId),
                                 href: `#fn-def-${footnoteId}`,
                                 ariaLabel: `Footnote ${footnoteNumber.toString()}.`,
                                 title: `Footnote ${footnoteNumber.toString()}.`

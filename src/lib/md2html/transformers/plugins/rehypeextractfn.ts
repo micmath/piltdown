@@ -11,7 +11,16 @@ function rehypeExtractFn() {
   function transformer(tree: Node, vfile: VFile) {
     let keyCounter = 0;
     const footnoteRefs: Map<string, number> = new Map(); // id => key
+    const footnoteRefCount: Map<string, number> = new Map(); // id => count
     const footnoteDefs: Map<string, string> = new Map(); // id => value
+
+    function getFootnoteRefCounter(footnoteId) {
+      const count = footnoteRefCount.get(footnoteId);
+      if (count > 1) {
+        return `--${count}`;
+      }
+      return "";
+    }
 
     function processFnRefs(node: any): any {
       if (node.tagName === "code") {
@@ -25,7 +34,7 @@ function rehypeExtractFn() {
           const regex = /\[\^([a-zA-Z0-9-]+?)\](?!:)/g;
           let lastIndex = 0;
           let match;
-          
+
           while ((match = regex.exec(textContent)) !== null) {
             const footnoteId = match[1];
             const beforeText = textContent.slice(lastIndex, match.index);
@@ -37,6 +46,13 @@ function rehypeExtractFn() {
             if (!footnoteRefs.has(footnoteId)) {
               keyCounter++;
               footnoteRefs.set(footnoteId, keyCounter);
+            }
+
+            if (!footnoteRefCount.has(footnoteId)) {
+              footnoteRefCount.set(footnoteId, 1);
+            }
+            else {
+              footnoteRefCount.set(footnoteId, footnoteRefCount.get(footnoteId)! + 1);
             }
 
             const footnoteNumber = footnoteRefs.get(footnoteId)!;
@@ -51,7 +67,7 @@ function rehypeExtractFn() {
                   h(
                     "a",
                     {
-                      id: `fn-ref-${footnoteId}`,
+                      id: `fn-ref-${footnoteId}` + getFootnoteRefCounter(footnoteId),
                       href: `#fn-def-${footnoteId}`,
                       ariaLabel: `Footnote ${footnoteNumber.toString()}.`,
                       title: `Footnote ${footnoteNumber.toString()}.`
