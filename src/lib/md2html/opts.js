@@ -10,7 +10,7 @@ const defaultOpts = {
         ignore: ['**/.*']
     },
     pages: {
-        glob: '**/*.md',
+        glob: '**/*.{md,xml,json}',
         ignore: ['**/.*']
     },
     filters: {}

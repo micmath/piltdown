@@ -36,6 +36,9 @@ export default async function template(model: Model, opts: Opts): Promise<void> 
   const l = pages.length;
   
   for (let i = 0; i < l; i++) {
+    if (!pages[i].destpath.endsWith('.html')) {
+      continue;
+    }
     const result = await render(
       pages[i].body,
       { page: pages[i].head, data: model.get('data') }
@@ -69,7 +72,7 @@ const engine = unified()
   .use(rehypeHeadingLink)
   .use(rehypeStringify, { allowDangerousCharacters: true, allowDangerousHtml: true });
 
-async function render(input: string = '', data: Record<string, unknown> = {}): Promise<RenderResult> {
+async function render(input: string = '', _data: Record<string, unknown> = {}): Promise<RenderResult> {
   const rendered = await engine.process(input);
   const value = restore(rendered.value);
   

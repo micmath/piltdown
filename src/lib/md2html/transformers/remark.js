@@ -23,6 +23,9 @@ export default async function template(model, opts) {
     const pages = model.get('pages');
     const l = pages.length;
     for (let i = 0; i < l; i++) {
+        if (!pages[i].destpath.endsWith('.html')) {
+            continue;
+        }
         const result = await render(pages[i].body, { page: pages[i].head, data: model.get('data') });
         pages[i].toc = (result.data?.toc ?? []);
         pages[i].footnotes = (result.data?.footnotes ?? {});
@@ -50,7 +53,7 @@ const engine = unified()
     .use(rehypeExtractToc)
     .use(rehypeHeadingLink)
     .use(rehypeStringify, { allowDangerousCharacters: true, allowDangerousHtml: true });
-async function render(input = '', data = {}) {
+async function render(input = '', _data = {}) {
     const rendered = await engine.process(input);
     const value = restore(rendered.value);
     return {

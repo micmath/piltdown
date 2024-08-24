@@ -37,9 +37,11 @@ export default class Page {
 
 const srcpath2destpath = (srcpath: string, srcdir: string, destdir: string): string => {
   let outpath = path.join(destdir, srcpath.slice(srcdir.length));
-  outpath = outpath.replace(/\.md$/, '.html');
-  if (!outpath.endsWith('index.html')) {
-    outpath = outpath.replace(/\.html$/, '/index.html');
+  if (outpath.endsWith('.md')) {
+    outpath = outpath.replace(/\.md$/, '.html');
+    if (!outpath.endsWith('index.html')) {
+      outpath = outpath.replace(/\.html$/, '/index.html');
+    }
   }
   return outpath;
 };
@@ -50,6 +52,10 @@ const prettyUrl = (filepath: string, rootdir: string): string => {
 
   let relativePath = path.relative(resolvedRootDir, resolvedFilePath);
   relativePath = relativePath.replace(/\\/g, '/');
+
+  if (!relativePath.endsWith('.html')) {
+    return '/' + relativePath;
+  }
 
   let route = '/' + relativePath.replace(/(^|\/)index\.html$/, '');
 

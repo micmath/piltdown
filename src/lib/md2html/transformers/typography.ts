@@ -35,6 +35,9 @@ export default async function(model: Model, opts: Opts): Promise<void> {
   const pages: Array<Page> = model.get('pages');
   
   await Promise.all(pages.map(async (page) => {
-    page.body = quotes(page.body);
+    if (page.destpath.endsWith('.html')) {
+      page.body = quotes(page.body);
+    }
   }));
 }
+

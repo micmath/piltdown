@@ -25,6 +25,8 @@ function quotes(html) {
 export default async function (model, opts) {
     const pages = model.get('pages');
     await Promise.all(pages.map(async (page) => {
-        page.body = quotes(page.body);
+        if (page.destpath.endsWith('.html')) {
+            page.body = quotes(page.body);
+        }
     }));
 }
