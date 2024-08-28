@@ -12,16 +12,6 @@ describe('opts', () => {
   it('should create an options object with all default values from nothing.', async () => {
     const result = await opts();
 
-    // {
-    //   dir: {
-    //     data: '/Users/example/piltdown/_data',
-    //     pages: '/Users/example/piltdown/_pages',
-    //     site: '/Users/example/piltdown/_site'
-    //   },
-    //   data: { glob: '**/*.json', ignore: ['**/.*'] },
-    //   pages: { glob: '**/*.md', ignore: ['**/.*'] }
-    // }
-
     expect(typeof result).toEqual('object');
     expect(typeof result.dir).toEqual('object');
     expect(typeof result.data).toEqual('object');
@@ -33,7 +23,7 @@ describe('opts', () => {
     expect(result.dir.data.endsWith('_data')).toBeTrue();
     expect(result.data.glob).toBe('**/*.json');
     expect(result.data.ignore).toEqual(['**/.*']);
-    expect(result.pages.glob).toBe('**/*.md');
+    expect(result.pages.glob).toBe('**/*.{md,xml,json}');
     expect(result.pages.ignore).toEqual(['**/.*']);
   });
 
@@ -51,7 +41,7 @@ describe('opts', () => {
     expect(result.dir.data.endsWith('_data')).toBeTrue();
     expect(result.data.glob).toBe('**/*.json');
     expect(result.data.ignore).toEqual(['**/.*']);
-    expect(result.pages.glob).toBe('**/*.md');
+    expect(result.pages.glob).toBe('**/*.{md,xml,json}');
     expect(result.pages.ignore).toEqual(['**/.*']);
   });
 
@@ -76,6 +66,6 @@ describe('opts', () => {
     expect(result.dir.data.endsWith('/_data')).toBeTrue();
     // some default values:
     expect(result.data).toEqual({ glob: '**/*.data.json', ignore: ['**/.*'] });
-    expect(result.pages).toEqual({ glob: '**/*.md', ignore: ['**/_*'] });
+    expect(result.pages).toEqual({ glob: '**/*.{md,xml,json}', ignore: ['**/_*'] });
   });
 });

@@ -28,9 +28,9 @@ Some other paragraph.
     const output = await process(input);
     expect(output).toBe(
 `<p>Some paragraph.</p>
-<aside class="alert alert-caution">
+<div class="alert alert-caution" role="note" data-kind="Caution">
 <p>This is caution text.</p>
-</aside>
+</div>
 <p>Some other paragraph.</p>`
     );
   });
@@ -43,9 +43,9 @@ Some other paragraph.
 
     const output = await process(input);
     expect(output).toBe(
-`<aside class="alert alert-note">
+`<div class="alert alert-note" role="note" data-kind="Note">
 <p><em>This</em> <code>is note</code> <img src="test.jpg" alt=""> <span>text</span>.</p>
-</aside>`
+</div>`
     );
   });
 
